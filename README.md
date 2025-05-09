@@ -32,3 +32,8 @@ touch .gitignore
 # Add "dev" inside scripts
 
 "dev": "nodemon src/index.ts"
+
+# Note: Empty folders are not pushed to git, so please create those folders manually by running 
+
+`mkdir -p src/{controllers,services,models,routes,middleware,utils,config,types,tests}`
+
