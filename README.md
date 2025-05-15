@@ -1,6 +1,7 @@
 # Create the main project directory
 
 `mkdir backend`
+
 `cd backend`
 
 # Initialize npm package
@@ -9,7 +10,7 @@
 
 # Install core dependencies
 
-`npm install express cors nodemon`
+`npm install express cors nodemon dotenv`
 
 # Install development dependencies (-D same as --save-dev)
 
@@ -25,9 +26,7 @@
 
 # Create essential files
 
-`touch src/index.ts`
-`touch .env .env.example`
-`touch .gitignore`
+`touch src/index.ts .env .env.example .gitignore`
 
 # Add "dev" inside scripts
 
