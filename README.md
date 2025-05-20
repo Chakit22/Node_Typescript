@@ -32,7 +32,18 @@
 
 `"dev": "nodemon src/index.ts"`
 
-# Note: Empty folders are not pushed to git, so please create those folders manually by running 
+# Note: Empty folders are not pushed to git, so please create those folders manually by running
 
 `mkdir -p src/{controllers,services,models,routes,middleware,utils,config,types,tests}`
 
+# How to understand the flow
+
+Please make these type of requests and you will understand how this works
+
+`curl -X POST http://localhost:3000/api/users \`
+`-H "Content-Type: application/json" \`
+`-d '{"name": "John Doe", "email": "john@example.com", "age": 30}'`
+
+The above request is used to create a user. Have a look at the flow and you will understand how to strcuture it.
+
+## Note: Always place the error handling middleware at last in the stack. It will be run if there is an error anytime, and a middleware with four parameters will be run with `err` as the property.
