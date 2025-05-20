@@ -47,3 +47,19 @@ Please make these type of requests and you will understand how this works
 The above request is used to create a user. Have a look at the flow and you will understand how to strcuture it.
 
 ## Note: Always place the error handling middleware at last in the stack. It will be run if there is an error anytime, and a middleware with four parameters will be run with `err` as the property.
+
+## Note
+
+`Success response is`
+`res.status(200).json({`
+`success: true`,
+`body: user`
+`message: "User created successfully"`
+`})`
+
+`Error response is`
+`res.status(500).json({`
+`success: false`,
+`body: null`
+`message: "Internal server error"`
+`})`

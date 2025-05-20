@@ -18,8 +18,10 @@ class UserController {
        * and sends the response back to the client,
        * but does not end the function. Statements after this will still execute.
        */
-      res.json({
-        users: this.users,
+      res.status(200).json({
+        success: true,
+        body: this.users,
+        message: "Users fetched successfully",
       });
       /*
           This will still execute as return statement is not written. 
@@ -46,12 +48,11 @@ class UserController {
   getUserById = (req: Request, res: Response, next: NextFunction) => {
     try {
       const user = this.users.find((u) => u.id === parseInt(req.params.id));
-      if (!user) {
-        const error = new Error("User not found");
-        (error as any).statusCode = 404;
-        throw error;
-      }
-      res.json(user);
+      res.status(200).json({
+        success: true,
+        body: user,
+        message: "User fetched successfully",
+      });
     } catch (error) {
       next(error);
     }
@@ -68,7 +69,11 @@ class UserController {
       };
       //   next(new Error("Test error"));
       this.users.push(newUser);
-      res.status(201).json(newUser);
+      res.status(201).json({
+        success: true,
+        body: newUser,
+        message: "User created successfully",
+      });
       console.log("createUser finished");
     } catch (error) {
       next(error);
@@ -93,7 +98,11 @@ class UserController {
         updatedAt: new Date().toISOString(),
       };
 
-      res.json(this.users[userIndex]);
+      res.status(200).json({
+        success: true,
+        body: this.users[userIndex],
+        message: "User updated successfully",
+      });
     } catch (error) {
       next(error);
     }
@@ -112,7 +121,11 @@ class UserController {
       }
 
       const deletedUser = this.users.splice(userIndex, 1)[0];
-      res.json({ message: "User deleted successfully", user: deletedUser });
+      res.status(200).json({
+        success: true,
+        body: deletedUser,
+        message: "User deleted successfully",
+      });
     } catch (error) {
       next(error);
     }
